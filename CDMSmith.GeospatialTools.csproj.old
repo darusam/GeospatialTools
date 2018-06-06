@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ProjectGuid>{853AB936-5F6B-4917-9D32-D8F82EFE8760}</ProjectGuid>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Esri\Wpf\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="RBush" Version="2.0.28" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\Workflow Designer\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Esri\Json\CoordinateReferenceSystem\CoorindateReferenceSystem.cs" />
+    <Compile Include="Esri\Json\EsriJsonObject.cs" />
+    <Compile Include="Esri\Json\Feature.cs" />
+    <Compile Include="Esri\Json\FeatureSet.cs" />
+    <Compile Include="Esri\Json\FieldDefinition.cs" />
+    <Compile Include="Esri\Json\Geometry\Converters\RingPointConverter.cs" />
+    <Compile Include="Esri\Json\Geometry\Point.cs" />
+    <Compile Include="Esri\Json\Geometry\Polygon.cs" />
+    <Compile Include="Esri\Json\Geometry\Polyline.cs" />
+    <Compile Include="Esri\Json\Geometry\RingPoint.cs" />
+    <Compile Include="Geo\BBox.cs" />
+    <Compile Include="Geo\IFeature.cs" />
+    <Compile Include="Geo\IFeatureSet.cs" />
+    <Compile Include="Geo\IGeometry.cs" />
+    <Compile Include="Geo\IPoint.cs" />
+    <Compile Include="Geo\ISpatialReference.cs" />
+    <Compile Include="Geo\LineString.cs" />
+    <Compile Include="Tools\Extensions.cs" />
+    <Compile Include="Tools\Intersect.cs" />
+    <Compile Include="Tools\LineSegment.cs" />
+    <Compile Include="Tools\NearestPointOnLine.cs" />
+    <Compile Include="Tools\NearestPoints.cs" />
+    <Compile Include="Tools\PointInPolygon.cs" />
+    <Compile Include="Tools\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>

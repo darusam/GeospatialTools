@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net461;</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Esri\Wpf\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RBush" Version="2.0.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\Workflow Designer\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

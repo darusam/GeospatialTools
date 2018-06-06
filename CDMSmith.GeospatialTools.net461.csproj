@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>CDMSmith.GeospatialTools</AssemblyName>
+    <RootNamespace>CDMSmith.GeospatialTools</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RBush" Version="2.0.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\Workflow Designer\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
