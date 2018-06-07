@@ -8,7 +8,7 @@ namespace CDMSmith.GeospatialTools.Tools
 {
     public class PointInPolygon
     {
-        public bool Execute(Point point = null, Polygon polygon = null)
+        public static bool Execute(IPoint point = null, IPolygon polygon = null)
         {
             if (point == null) { throw new Exception("point is a required parameter"); }
             if (polygon == null) { throw new Exception("polygon is a required parameter"); }
@@ -21,7 +21,7 @@ namespace CDMSmith.GeospatialTools.Tools
             }
             
             bool found = false;
-            foreach(var ring in polygon.Rings)
+            foreach(IPoint[] ring in polygon.Rings)
             {
                 if(withinRing(point, ring))
                 {
@@ -32,7 +32,7 @@ namespace CDMSmith.GeospatialTools.Tools
             return found;
         }
 
-        private bool withinRing(IPoint point, IEnumerable<IPoint> ring)
+        private static bool withinRing(IPoint point, IEnumerable<IPoint> ring)
         {
             bool inside = false;
 

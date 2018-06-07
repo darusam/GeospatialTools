@@ -7,7 +7,7 @@ using CDMSmith.GeospatialTools.Esri.Json;
 
 namespace CDMSmith.GeospatialTools.Tools
 {
-    public class Intersect
+    public class LineIntersect
     {
         public static IEnumerable<IPoint> Execute(IGeometry line1, IGeometry line2)
         {
@@ -50,9 +50,14 @@ namespace CDMSmith.GeospatialTools.Tools
                 throw new Exception("Intersects: line2 must contain only 2 points");
             }
 
-            double denom = ((points2.Last().Y - points2.First().Y) * (points1.Last().X - points1.First().X)) - ((points2.Last().X - points2.First().X) * (points1.Last().Y - points1.First().Y));
-            double numeA = ((points2.Last().X - points2.First().X) * (points1.First().Y - points2.First().Y)) - ((points2.Last().Y - points2.First().Y) * (points1.First().X - points2.First().X));
-            double numeB = ((points1.Last().X - points1.First().X) * (points1.First().Y - points2.First().Y)) - ((points1.Last().Y - points1.First().Y) * (points1.First().X - points2.First().X));
+            IPoint p1f = points1.First();
+            IPoint p1l = points1.Last();
+            IPoint p2f = points2.First();
+            IPoint p2l = points2.Last();
+
+            double denom = ((p2l.Y - p2f.Y) * (p1l.X - p1f.X)) - ((p2l.X - p2f.X) * (p1l.Y - p1f.Y));
+            double numeA = ((p2l.X - p2f.X) * (p1f.Y - p2f.Y)) - ((p2l.Y - p2f.Y) * (p1f.X - p2f.X));
+            double numeB = ((p1l.X - p1f.X) * (p1f.Y - p2f.Y)) - ((p1l.Y - p1f.Y) * (p1f.X - p2f.X));
 
             if(denom == 0)
             {
@@ -69,8 +74,8 @@ namespace CDMSmith.GeospatialTools.Tools
             if(uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1)
             {
                 return new Point(
-                    (points1.First().X + (uA * (points1.Last().X - points1.First().X))), 
-                    (points1.First().Y + (uA * (points1.Last().Y - points1.First().Y))));
+                    (p1f.X + (uA * (p1l.X - p1f.X))), 
+                    (p1f.Y + (uA * (p1l.Y - p1f.Y))));
             }
             return null;
         }

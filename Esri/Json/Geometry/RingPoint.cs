@@ -16,6 +16,10 @@ namespace CDMSmith.GeospatialTools.Esri.Json
 
         public double M { get; set; }
 
+        public ISpatialReference CRS => throw new System.NotImplementedException();
+
+        public string Type => throw new System.NotImplementedException();
+
         public RingPoint(double x, double y, double z = double.NaN, double m = double.NaN)
         {
             X = x;

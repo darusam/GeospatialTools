@@ -155,5 +155,7 @@ namespace CDMSmith.GeospatialTools.Tools
             Tuple<double, double> tuple = CDMSmith.GeospatialTools.Tools.Util.Destination(point.X, point.Y, distance, bearing);
             return new Point(tuple.Item1, tuple.Item2);
         }
+
+        
     }
 }

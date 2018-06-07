@@ -49,7 +49,7 @@ namespace CDMSmith.GeospatialTools.Tools
                     IPoint ppt1 = point.Destination(maxDistance, bearing + 90);
                     IPoint ppt2 = point.Destination(maxDistance, bearing - 90);
 
-                    IEnumerable<IPoint> intersect = Intersect.Execute(
+                    IEnumerable<IPoint> intersect = LineIntersect.Execute(
                         LineString.Create(ppt1, ppt2),
                         LineString.Create(start, end));
 

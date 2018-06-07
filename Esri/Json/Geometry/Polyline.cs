@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CDMSmith.GeospatialTools.Geo;
 using Newtonsoft.Json;
 
 namespace CDMSmith.GeospatialTools.Esri.Json
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Polyline : EsriJsonObject, CDMSmith.GeospatialTools.Geo.IGeometry
+    public class Polyline : EsriJsonObject, Geo.IGeometry, Geo.IMultiLine
     {
 
         [JsonProperty(PropertyName = "hasM", Required = Required.Default)]
@@ -51,5 +52,7 @@ namespace CDMSmith.GeospatialTools.Esri.Json
         }
 
         public override string Type { get { return "polyline"; }}
+
+        IEnumerable<IEnumerable<IPoint>> IMultiLine.Paths => Paths;
     }
 }

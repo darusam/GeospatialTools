@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using CDMSmith.GeospatialTools.Geo;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace CDMSmith.GeospatialTools.Esri.Json
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Polygon : EsriJsonObject, CDMSmith.GeospatialTools.Geo.IGeometry
+    public class Polygon : EsriJsonObject, Geo.IGeometry, Geo.IPolygon
     {
         public Polygon(List<RingPoint[]> rings)
         {
@@ -60,5 +62,7 @@ namespace CDMSmith.GeospatialTools.Esri.Json
         }
 
         public override string Type { get { return "polygon"; } }
+
+        IEnumerable<IPoint[]> IPolygon.Rings => Rings;
     }
 }

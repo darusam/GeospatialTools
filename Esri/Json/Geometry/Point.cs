@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace CDMSmith.GeospatialTools.Esri.Json
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Point : EsriJsonObject, CDMSmith.GeospatialTools.Geo.IGeometry, IPoint
+    public class Point : EsriJsonObject, IGeometry, IPoint
     {
         public Point()
         {
