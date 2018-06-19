@@ -14,13 +14,13 @@ namespace CDMSmith.GeospatialTools.Tools
             IDictionary<string, IPoint> unique = new Dictionary<string,IPoint>();
             IList<IPoint> intersections = new List<IPoint>();
 
-            RBush<ISpatialData> tree = new RBush<ISpatialData>();
-            tree.BulkLoad(LineSegment.Execute(line2).Select(a => a.AsSpatialData()));
+            RBush<Extensions.SpatialDataWrapper<Segment>> tree = new RBush<Extensions.SpatialDataWrapper<Segment>>();
+            tree.BulkLoad(LineSegment.Execute(line2).Select(a => a.AsSpatialData<Segment>()));
             foreach(Segment segment in LineSegment.Execute(line1))
             {
-                foreach(ISpatialData match in tree.Search(segment.BBox.AsEnvelope()))
+                foreach(Extensions.SpatialDataWrapper<Segment> match in tree.Search(segment.BBox.AsEnvelope()))
                 {
-                    IPoint intersect = Intersects(segment.LineString, (IGeometry)match);
+                    IPoint intersect = Intersects(segment.LineString, match.GetOriginalData<Segment>().LineString);
                     if(intersect != null)
                     {
                         var key = string.Join(",", intersect.X, intersect.Y);
